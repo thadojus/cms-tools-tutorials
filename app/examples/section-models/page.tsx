@@ -124,14 +124,33 @@ export default function SectionModelsExample() {
               {/* Implementation */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Implementation Example</h2>
-                
+
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-orange-900 mb-3">🎯 Real-World Scenario: SaaS Company Website</h3>
+                  <p className="text-orange-800 mb-3">
+                    You have an established SaaS website with pages like About, Pricing, and Features built in React.
+                    Marketing wants to frequently update testimonials, feature highlights, and promotional banners
+                    across these pages without touching the existing code structure.
+                  </p>
+                  <div className="bg-orange-100 border border-orange-300 rounded p-3">
+                    <strong className="text-orange-900">Goal:</strong>
+                    <span className="text-orange-800 text-sm"> Keep existing pages intact + Add dynamic content sections + Enable marketing team independence</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">1. Embed Section in Your Page</h3>
-                    <p className="text-gray-600 mb-4">
-                      Add a Builder.io section to any existing React component:
-                    </p>
-                    
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">The Problem This Solves</h4>
+                      <p className="text-blue-700 text-sm">
+                        Your About page has static content that rarely changes (company history, mission) but also
+                        dynamic content that updates frequently (customer testimonials, recent achievements, team updates).
+                        Section Models let you keep the static parts in React while making specific sections manageable by content editors.
+                      </p>
+                    </div>
+
                     <pre className="code-block">
 {`// pages/about.tsx - Your existing About page
 import { RenderBuilderContent } from '@/components/BuilderSection';
@@ -139,18 +158,33 @@ import { RenderBuilderContent } from '@/components/BuilderSection';
 export default function AboutPage() {
   return (
     <div>
+      {/* Static content stays in React - developers control this */}
       <h1>About Our Company</h1>
       <p>Founded in 2020...</p>
-      
-      {/* Dynamic testimonials section */}
+
+      {/* Dynamic section - marketing team controls this */}
       <RenderBuilderContent model="section" content="testimonials" />
-      
+
+      {/* Static content continues */}
       <h2>Our Team</h2>
       <p>We have amazing people...</p>
+
+      {/* Another dynamic section */}
+      <RenderBuilderContent model="section" content="company-highlights" />
     </div>
   );
 }`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ Immediate Benefits</h4>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **Existing code preserved**: No risk of breaking current functionality</li>
+                        <li>• **Surgical updates**: Only specific sections become dynamic</li>
+                        <li>• **Marketing independence**: Team can update testimonials without developer tickets</li>
+                        <li>• **SEO maintained**: Server-rendered content keeps search ranking</li>
+                      </ul>
+                    </div>
                   </div>
 
                   <div>
