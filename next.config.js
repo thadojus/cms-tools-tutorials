@@ -11,12 +11,6 @@ const nextConfig = {
       };
     }
 
-    // Ignore Builder.io Node.js specific modules in client builds
-    config.externals = config.externals || [];
-    config.externals.push({
-      'isolated-vm': 'commonjs isolated-vm',
-    });
-
     return config;
   },
 
@@ -25,8 +19,8 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
 
-  // Enable static optimization
-  output: 'standalone',
+  // Disable static optimization for Builder.io routes during development
+  trailingSlash: false,
 }
 
 module.exports = nextConfig
