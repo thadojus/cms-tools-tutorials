@@ -129,35 +129,77 @@ export default function PageModelsExample() {
               {/* Routing Implementation */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Dynamic Routing Setup</h2>
-                <p className="text-gray-600 mb-6">
-                  Builder.io Page Models work best with Next.js catch-all routes. Here's how to implement it:
-                </p>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-blue-900 mb-3">🎯 Scenario: Marketing Team Needs Page Control</h3>
+                  <p className="text-blue-800 mb-3">
+                    Your marketing team wants to create landing pages, product announcements, and campaign pages
+                    without waiting for developers. They need full creative control over layout, content, and design.
+                  </p>
+                  <div className="bg-blue-100 border border-blue-300 rounded p-3">
+                    <strong className="text-blue-900">Business Impact:</strong>
+                    <ul className="text-blue-800 text-sm mt-1 space-y-1">
+                      <li>• Faster time-to-market for campaigns</li>
+                      <li>• Reduced developer dependency</li>
+                      <li>• A/B testing capabilities</li>
+                      <li>• SEO-optimized pages</li>
+                    </ul>
+                  </div>
+                </div>
 
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">1. Create Catch-All Route</h3>
+
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                      <div className="flex items-start">
+                        <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                          <span className="text-yellow-800 text-xs font-bold">!</span>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-yellow-800">Use Case</h4>
+                          <p className="text-yellow-700 text-sm">
+                            This pattern allows Builder.io to manage ANY URL path on your website. Marketing can create
+                            /black-friday-sale, /product-launch, or /company/about without developer intervention.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
                     <p className="text-gray-600 mb-4">
-                      Create a file at <code className="bg-gray-100 px-2 py-1 rounded text-sm">app/[[...slug]]/page.tsx</code> 
+                      Create a file at <code className="bg-gray-100 px-2 py-1 rounded text-sm">app/[[...slug]]/page.tsx</code>
                       to handle all dynamic routes:
                     </p>
-                    
+
                     <pre className="code-block">
 {`// app/[[...slug]]/page.tsx
 import { Content, fetchOneEntry } from '@builder.io/sdk-react';
 
 export default async function Page({ params, searchParams }) {
+  // Convert URL segments into a path Builder.io can understand
   const urlPath = '/' + (params?.slug?.join('/') || '');
-  
+
+  // Fetch content from Builder.io for this specific path
   const content = await fetchOneEntry({
     apiKey: process.env.NEXT_PUBLIC_BUILDER_API_KEY,
     model: 'page',
-    userAttributes: { urlPath },
-    options: searchParams,
+    userAttributes: { urlPath }, // Tell Builder.io which page we want
+    options: searchParams, // Pass query params for targeting
   });
 
   return <Content content={content} apiKey={apiKey} model="page" />;
 }`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ What This Achieves</h4>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **Automatic URL mapping**: Any URL automatically checks Builder.io for content</li>
+                        <li>• **Server-side rendering**: Content is fetched on the server for optimal SEO</li>
+                        <li>• **Query parameter support**: Enables A/B testing and personalization</li>
+                        <li>• **Zero developer maintenance**: New pages work immediately without code changes</li>
+                      </ul>
+                    </div>
                   </div>
 
                   <div>
