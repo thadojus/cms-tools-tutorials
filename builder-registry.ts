@@ -78,7 +78,6 @@ export const customComponents: RegisteredComponent[] = [
       }
     ],
     canHaveChildren: false,
-    tags: ['marketing', 'hero'],
   },
   {
     component: TestimonialCard,
@@ -110,8 +109,6 @@ export const customComponents: RegisteredComponent[] = [
         name: 'rating',
         type: 'number',
         defaultValue: 5,
-        min: 1,
-        max: 5,
       },
       {
         name: 'showRating',
@@ -120,7 +117,6 @@ export const customComponents: RegisteredComponent[] = [
       }
     ],
     canHaveChildren: false,
-    tags: ['social proof', 'testimonial'],
   },
   {
     component: ProductShowcase,
@@ -152,7 +148,6 @@ export const customComponents: RegisteredComponent[] = [
       }
     ],
     canHaveChildren: false,
-    tags: ['data', 'api'],
   },
   {
     component: CTAButton,
@@ -195,7 +190,6 @@ export const customComponents: RegisteredComponent[] = [
       }
     ],
     canHaveChildren: false,
-    tags: ['action', 'button'],
   },
   {
     component: APIDataDisplay,
@@ -206,7 +200,6 @@ export const customComponents: RegisteredComponent[] = [
         type: 'url',
         defaultValue: 'https://jsonplaceholder.typicode.com/users',
         required: true,
-        helperText: 'URL to fetch data from'
       },
       {
         name: 'title',
@@ -223,12 +216,9 @@ export const customComponents: RegisteredComponent[] = [
         name: 'maxItems',
         type: 'number',
         defaultValue: 5,
-        min: 1,
-        max: 20,
       }
     ],
     canHaveChildren: false,
-    tags: ['data', 'api', 'dynamic'],
   },
   {
     component: ConditionalContent,
@@ -238,22 +228,18 @@ export const customComponents: RegisteredComponent[] = [
         name: 'showForLoggedIn',
         type: 'boolean',
         defaultValue: false,
-        helperText: 'Show only for authenticated users'
       },
       {
         name: 'showForAnonymous',
         type: 'boolean',
         defaultValue: true,
-        helperText: 'Show only for anonymous users'
       },
       {
         name: 'requiredRole',
         type: 'string',
         defaultValue: '',
-        helperText: 'Required user role (leave empty for any)'
       }
     ],
     canHaveChildren: true,
-    tags: ['conditional', 'auth'],
   },
 ];
