@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components for the reference app */
+@layer components {
+  .code-block {
+    @apply bg-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto;
+  }
+  
+  .example-card {
+    @apply bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow;
+  }
+  
+  .nav-link {
+    @apply text-gray-600 hover:text-builder-primary transition-colors px-3 py-2 rounded-md;
+  }
+  
+  .nav-link.active {
+    @apply text-builder-primary bg-blue-50;
+  }
+  
+  .section-header {
+    @apply text-2xl font-bold text-gray-900 mb-4;
+  }
+  
+  .subsection-header {
+    @apply text-xl font-semibold text-gray-800 mb-3;
+  }
+}
+
+/* Syntax highlighting for code examples */
+.hljs {
+  background: #f8f9fa !important;
+  color: #333 !important;
+}
