@@ -233,42 +233,87 @@ export default async function Page({ params, searchParams }) {
               {/* Content Fetching */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Content Fetching & Rendering</h2>
-                
+
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-purple-900 mb-3">🎯 Scenario: E-commerce Product Launch</h3>
+                  <p className="text-purple-800 mb-3">
+                    Your company is launching a new product line. Marketing needs to create dedicated landing pages
+                    for each product, with custom layouts, testimonials, and pricing tables. The pages must be
+                    SEO-optimized and load instantly for paid traffic campaigns.
+                  </p>
+                  <div className="bg-purple-100 border border-purple-300 rounded p-3">
+                    <strong className="text-purple-900">Challenge:</strong>
+                    <span className="text-purple-800 text-sm"> Fast page creation + SEO performance + Dynamic content</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">Server-Side Fetching</h3>
-                    <p className="text-gray-600 mb-4">
-                      Content is fetched server-side for optimal SEO and performance:
-                    </p>
-                    
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">Why Server-Side?</h4>
+                      <p className="text-blue-700 text-sm">
+                        Fetching content on the server ensures search engines can crawl your pages properly,
+                        users see content immediately (no loading spinners), and social media previews work correctly.
+                        This is crucial for marketing campaigns where first impressions matter.
+                      </p>
+                    </div>
+
                     <pre className="code-block">
 {`const content = await fetchOneEntry({
   apiKey: process.env.NEXT_PUBLIC_BUILDER_API_KEY!,
   model: 'page',
-  userAttributes: { urlPath },
+  userAttributes: { urlPath }, // Match Builder.io page to URL
   options: searchParams, // For targeting & personalization
 });`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ Result</h4>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **Perfect SEO**: Search engines see fully rendered HTML</li>
+                        <li>• **Instant loading**: Content appears immediately, no flash of loading state</li>
+                        <li>• **Social sharing**: Facebook, Twitter get proper page previews</li>
+                        <li>• **Analytics ready**: Page views tracked accurately from first render</li>
+                      </ul>
+                    </div>
                   </div>
 
                   <div>
                     <h3 className="subsection-header">Preview Mode Support</h3>
-                    <p className="text-gray-600 mb-4">
-                      Handle preview and edit modes for content editors:
-                    </p>
-                    
+
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-yellow-800 mb-2">Real-World Scenario</h4>
+                      <p className="text-yellow-700 text-sm">
+                        Your content editor is working on tomorrow's product announcement. They need to preview
+                        the page live on your actual website before publishing, but visitors shouldn't see the
+                        unfinished content yet.
+                      </p>
+                    </div>
+
                     <pre className="code-block">
 {`import { isPreviewing, isEditing } from '@builder.io/sdk-react';
 
-const canShowContent = 
-  content || 
-  isPreviewing(searchParams) || 
-  isEditing(searchParams);
+const canShowContent =
+  content ||                      // Published content exists
+  isPreviewing(searchParams) ||   // Editor is previewing
+  isEditing(searchParams);        // Editor is actively editing
 
 if (!canShowContent) {
-  return <NotFoundPage />;
+  return <NotFoundPage />; // Show 404 to regular visitors
 }`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ What This Enables</h4>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **Safe previewing**: Content editors see draft content on live site</li>
+                        <li>• **Public protection**: Regular visitors get 404 for unpublished pages</li>
+                        <li>• **Real environment testing**: Preview uses actual site styling and functionality</li>
+                        <li>• **Collaboration**: Team members can review content before going live</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
