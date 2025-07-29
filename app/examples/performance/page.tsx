@@ -95,13 +95,32 @@ export default function PerformanceExample() {
               {/* ISR Implementation */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Incremental Static Regeneration (ISR)</h2>
-                
+
+                <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-emerald-900 mb-3">🎯 Scenario: High-Traffic News Website</h3>
+                  <p className="text-emerald-800 mb-3">
+                    Your news website gets 100k daily visitors and publishes 50+ articles per day. You need lightning-fast
+                    page loads for SEO and user experience, but content updates frequently. Traditional static sites are
+                    too slow to rebuild, and server-side rendering can't handle the traffic spikes.
+                  </p>
+                  <div className="bg-emerald-100 border border-emerald-300 rounded p-3">
+                    <strong className="text-emerald-900">Challenge:</strong>
+                    <span className="text-emerald-800 text-sm"> Static speed + Dynamic content + High traffic + Fast publishing</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">Configure ISR for Builder.io Content</h3>
-                    <p className="text-gray-600 mb-4">
-                      ISR provides the best of both worlds - static performance with dynamic content updates:
-                    </p>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">How ISR Solves This</h4>
+                      <p className="text-blue-700 text-sm">
+                        ISR serves cached static pages instantly (fast), regenerates pages in the background when content
+                        changes (fresh), and handles traffic spikes without server load (scalable). Your news site gets
+                        sub-100ms page loads while editors publish updates that appear within minutes.
+                      </p>
+                    </div>
                     
                     <pre className="code-block">
 {`// app/builder-content/[[...slug]]/page.tsx
