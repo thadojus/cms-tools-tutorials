@@ -330,13 +330,32 @@ export async function GET(request: Request) {
               {/* Webhook Integration */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Webhook-Based Cache Invalidation</h2>
-                
+
+                <div className="bg-violet-50 border border-violet-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-violet-900 mb-3">🎯 Scenario: Time-Sensitive Campaign Launch</h3>
+                  <p className="text-violet-800 mb-3">
+                    Your company is launching a Black Friday sale at exactly 12:00 AM. Marketing has prepared the landing
+                    page in Builder.io but it's still cached with "Coming Soon" content. You need the new sale content
+                    to appear instantly when published, without waiting for the next cache refresh cycle.
+                  </p>
+                  <div className="bg-violet-100 border border-violet-300 rounded p-3">
+                    <strong className="text-violet-900">Business Critical:</strong>
+                    <span className="text-violet-800 text-sm"> Instant content updates + No manual intervention + Perfect timing</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">Builder.io Webhook Setup</h3>
-                    <p className="text-gray-600 mb-4">
-                      Automatically invalidate cache when content is published:
-                    </p>
+
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-amber-800 mb-2">Why Webhooks Are Essential</h4>
+                      <p className="text-amber-700 text-sm">
+                        Without webhooks, cached content updates only when the cache expires (could be hours).
+                        Webhooks trigger immediate cache invalidation the moment content is published in Builder.io,
+                        ensuring your time-sensitive campaigns go live instantly.
+                      </p>
+                    </div>
                     
                     <pre className="code-block">
 {`// app/api/webhooks/builder/route.ts
