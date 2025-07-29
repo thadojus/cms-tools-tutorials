@@ -38,10 +38,15 @@ const BUILDER_PUBLIC_API_KEY = process.env.NEXT_PUBLIC_BUILDER_API_KEY!;
  * - /builder-content/blog/my-post → Blog post content
  */
 export default async function BuilderContentPage(props: PageProps) {
-  // Initialize Builder.io Node.js runtime
-  // NOTE: This import MUST be inside the component for proper server-side rendering
-  const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
-  initializeNodeRuntime();
+  // Initialize Builder.io Node.js runtime (skip in production builds)
+  if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
+    try {
+      const { initializeNodeRuntime } = await import('@builder.io/sdk-react/node/init');
+      initializeNodeRuntime();
+    } catch (error) {
+      console.warn('Builder.io Node runtime initialization failed:', error);
+    }
+  }
 
   // Construct the URL path from the slug parameters
   const urlPath = '/' + (props.params?.slug?.join('/') || '');
