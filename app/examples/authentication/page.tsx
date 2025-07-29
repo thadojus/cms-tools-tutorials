@@ -102,13 +102,32 @@ export default function AuthenticationExample() {
               {/* Conditional Content Component */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Building Conditional Content</h2>
-                
+
+                <div className="bg-rose-50 border border-rose-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-rose-900 mb-3">🎯 Scenario: SaaS Freemium Platform</h3>
+                  <p className="text-rose-800 mb-3">
+                    You run a SaaS platform with free and premium tiers. Marketing wants to create landing pages that
+                    show different content to anonymous visitors (signup CTAs), free users (upgrade prompts), and
+                    premium users (advanced feature highlights). Each audience should see relevant, personalized content.
+                  </p>
+                  <div className="bg-rose-100 border border-rose-300 rounded p-3">
+                    <strong className="text-rose-900">Business Goal:</strong>
+                    <span className="text-rose-800 text-sm"> Increase conversions by showing relevant content to each user segment</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">1. Create Authentication-Aware Component</h3>
-                    <p className="text-gray-600 mb-4">
-                      Build a component that shows/hides content based on user state:
-                    </p>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-blue-800 mb-2">Why This Matters</h4>
+                      <p className="text-blue-700 text-sm">
+                        Generic content has low conversion rates. Anonymous visitors need trust signals and signup incentives.
+                        Free users need upgrade motivation. Premium users need advanced feature education.
+                        This component enables one page with three different experiences.
+                      </p>
+                    </div>
                     
                     <pre className="code-block">
 {`// components/builder/ConditionalContent.tsx
