@@ -126,13 +126,33 @@ export default function APIIntegrationExample() {
               {/* Basic API Component */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Creating API-Connected Components</h2>
-                
+
+                <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-cyan-900 mb-3">🎯 Real Business Scenario: E-commerce Product Catalog</h3>
+                  <p className="text-cyan-800 mb-3">
+                    Your e-commerce site has products stored in Shopify, inventory data in a warehouse system, and
+                    customer reviews in a third-party service. Marketing wants to create landing pages that pull
+                    live product data, show real inventory counts, and display recent reviews - all without
+                    manual data entry.
+                  </p>
+                  <div className="bg-cyan-100 border border-cyan-300 rounded p-3">
+                    <strong className="text-cyan-900">Business Need:</strong>
+                    <span className="text-cyan-800 text-sm"> Real-time data + Visual page building + No manual updates</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">1. Build an API Data Component</h3>
-                    <p className="text-gray-600 mb-4">
-                      Create a component that fetches and displays external data:
-                    </p>
+
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-amber-800 mb-2">The Problem This Solves</h4>
+                      <p className="text-amber-700 text-sm">
+                        Without API integration, marketing would need to manually copy product names, prices, and
+                        descriptions into Builder.io pages. This creates outdated content, pricing errors, and
+                        requires constant maintenance. API components eliminate manual work and ensure data accuracy.
+                      </p>
+                    </div>
                     
                     <pre className="code-block">
 {`// components/builder/APIDataDisplay.tsx
@@ -365,7 +385,7 @@ export async function fetchWithCache(url: string) {
                     <h3 className="font-semibold mb-2 text-green-700">📰 Content</h3>
                     <ul className="text-sm text-gray-600 space-y-1">
                       <li>• Blog posts</li>
-                      <li>• News feeds</li>
+                      <li>��� News feeds</li>
                       <li>• Event listings</li>
                       <li>• User-generated content</li>
                     </ul>
