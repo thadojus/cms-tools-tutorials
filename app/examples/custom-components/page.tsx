@@ -213,60 +213,80 @@ export const CustomButton = ({
 
                   <div>
                     <h3 className="subsection-header">2. Register in Builder.io</h3>
-                    <p className="text-gray-600 mb-4">
-                      Add your component to the Builder.io registry with input configurations:
-                    </p>
-                    
+
+                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-purple-800 mb-2">What Registration Does</h4>
+                      <p className="text-purple-700 text-sm">
+                        This configuration creates a user-friendly interface in Builder.io's visual editor.
+                        Each "input" becomes a form field that marketing can fill out. Builder.io transforms
+                        their selections into React props automatically.
+                      </p>
+                    </div>
+
                     <pre className="code-block">
 {`// builder-registry.ts
 import { type RegisteredComponent } from "@builder.io/sdk-react";
 import dynamic from 'next/dynamic';
 
-const CustomButton = dynamic(() => 
-  import('./components/builder/CustomButton').then(mod => ({ 
-    default: mod.CustomButton 
+// Dynamic import improves performance - component loads only when needed
+const CustomButton = dynamic(() =>
+  import('./components/builder/CustomButton').then(mod => ({
+    default: mod.CustomButton
   }))
 );
 
 export const customComponents: RegisteredComponent[] = [
   {
     component: CustomButton,
-    name: 'Custom Button',
+    name: 'Custom Button', // Shows in Builder.io component library
     inputs: [
       {
-        name: 'text',
+        name: 'text',           // Becomes a text input field
         type: 'string',
         defaultValue: 'Click Here',
-        required: true,
+        required: true,         // Marketing must fill this out
       },
       {
-        name: 'url',
+        name: 'url',            // Becomes a URL input with validation
         type: 'url',
         defaultValue: '/',
         required: true,
       },
       {
-        name: 'variant',
+        name: 'variant',        // Becomes a dropdown menu
         type: 'string',
-        enum: ['primary', 'secondary'],
+        enum: ['primary', 'secondary'], // Only these options available
         defaultValue: 'primary',
       },
       {
-        name: 'size',
+        name: 'size',           // Another dropdown
         type: 'string',
         enum: ['small', 'medium', 'large'],
         defaultValue: 'medium',
       },
       {
-        name: 'icon',
+        name: 'icon',           // Optional text field
         type: 'string',
         defaultValue: '',
       }
     ],
-    canHaveChildren: false,
+    canHaveChildren: false,   // This is a self-contained component
   },
 ];`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ Marketing Experience</h4>
+                      <p className="text-green-700 text-sm mb-2">When marketing uses this component in Builder.io, they see:</p>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **"Custom Button"** in their component library</li>
+                        <li>• **Text field** for button text</li>
+                        <li>• **URL field** with link validation</li>
+                        <li>• **Dropdown** to choose primary/secondary style</li>
+                        <li>• **Size selector** for small/medium/large</li>
+                        <li>• **Live preview** that updates as they type</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
