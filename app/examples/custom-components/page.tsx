@@ -129,14 +129,33 @@ export default function CustomComponentsExample() {
               {/* Component Creation */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
                 <h2 className="section-header">Creating Custom Components</h2>
-                
+
+                <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-6">
+                  <h3 className="font-semibold text-indigo-900 mb-3">🎯 Scenario: Startup Needs Brand-Consistent CTAs</h3>
+                  <p className="text-indigo-800 mb-3">
+                    Your startup has specific brand guidelines for buttons - custom colors, hover effects, icon styles, and sizing.
+                    Marketing creates dozens of landing pages and needs buttons that always follow brand standards,
+                    but they don't know CSS or React. They need a simple interface to create on-brand buttons.
+                  </p>
+                  <div className="bg-indigo-100 border border-indigo-300 rounded p-3">
+                    <strong className="text-indigo-900">Challenge:</strong>
+                    <span className="text-indigo-800 text-sm"> Brand consistency + Marketing independence + Developer-quality components</span>
+                  </div>
+                </div>
+
                 <div className="space-y-6">
                   <div>
                     <h3 className="subsection-header">1. Build Your React Component</h3>
-                    <p className="text-gray-600 mb-4">
-                      Create a React component with props that content editors can configure:
-                    </p>
-                    
+
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                      <h4 className="font-semibold text-yellow-800 mb-2">Why Custom Components?</h4>
+                      <p className="text-yellow-700 text-sm">
+                        Instead of giving marketing raw HTML/CSS (risky, inconsistent), you create React components
+                        that encapsulate your design system. Marketing gets a user-friendly interface while you
+                        maintain code quality and brand consistency.
+                      </p>
+                    </div>
+
                     <pre className="code-block">
 {`// components/builder/CustomButton.tsx
 'use client';
@@ -144,8 +163,8 @@ export default function CustomComponentsExample() {
 interface CustomButtonProps {
   text: string;
   url: string;
-  variant: 'primary' | 'secondary';
-  size: 'small' | 'medium' | 'large';
+  variant: 'primary' | 'secondary'; // Brand-approved variants only
+  size: 'small' | 'medium' | 'large'; // Consistent sizing scale
   icon?: string;
 }
 
@@ -156,12 +175,14 @@ export const CustomButton = ({
   size = 'medium',
   icon
 }: CustomButtonProps) => {
+  // Your design system encoded in React
   const sizeClasses = {
     small: 'px-4 py-2 text-sm',
     medium: 'px-6 py-3 text-base',
     large: 'px-8 py-4 text-lg'
   };
-  
+
+  // Brand colors and effects locked in
   const variantClasses = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700',
     secondary: 'bg-gray-600 text-white hover:bg-gray-700'
@@ -178,6 +199,16 @@ export const CustomButton = ({
   );
 };`}
                     </pre>
+
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+                      <h4 className="font-semibold text-green-800 mb-2">✅ What Marketing Gets</h4>
+                      <ul className="text-green-700 text-sm space-y-1">
+                        <li>• **Simple interface**: Dropdown menus instead of CSS code</li>
+                        <li>• **Impossible to break**: Can't accidentally mess up styling</li>
+                        <li>• **Brand compliant**: Every button follows design system automatically</li>
+                        <li>• **Developer quality**: Accessibility, hover states, responsive design included</li>
+                      </ul>
+                    </div>
                   </div>
 
                   <div>
